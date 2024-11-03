@@ -18,7 +18,11 @@ const Review: React.FC<ReviewProps> = ({
   return (
     <View style={styles.container}>
       {image_url ? (
-        <Image source={{uri: image_url}} style={styles.image} />
+        <Image
+          resizeMode="contain"
+          source={{uri: image_url}}
+          style={styles.image}
+        />
       ) : (
         <View style={styles.placeholder}>
           <Text style={styles.placeholderText}>Sem imagem</Text>

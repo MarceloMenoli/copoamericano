@@ -12,14 +12,19 @@ const MainTabs: React.FC = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
           bottom: 25,
-          left: 20,
-          right: 20,
+          left: 140,
+          right: 140,
           elevation: 0,
-          borderRadius: 15,
-          height: 90,
+          borderRadius: 50,
+          height: 65,
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingBottom: 20,
+          backgroundColor: '#0d101b',
         },
       }}>
       <Tab.Screen
@@ -28,12 +33,22 @@ const MainTabs: React.FC = () => {
         options={{
           tabBarIcon: ({color, size, focused}) => (
             <View
-              style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
-              <Feather name="home" color={color} size={size} />
-              <Text style={{color: color, fontSize: 15}}>Home</Text>
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: 10,
+                backgroundColor: focused ? '#fff' : '#0d101b',
+                height: 60,
+                width: 60,
+                borderRadius: 30,
+              }}>
+              <Feather
+                name="home"
+                color={focused ? '#0d101b' : '#fff'}
+                size={size}
+              />
             </View>
           ),
-          tabBarLabel: '',
         }}
       />
       <Tab.Screen
@@ -42,12 +57,22 @@ const MainTabs: React.FC = () => {
         options={{
           tabBarIcon: ({color, size, focused}) => (
             <View
-              style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
-              <Feather name="map" color={color} size={size} />
-              <Text style={{color: color, fontSize: 15}}>Localização</Text>
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: 10,
+                backgroundColor: focused ? '#fff' : '#0d101b',
+                height: 60,
+                width: 60,
+                borderRadius: 30,
+              }}>
+              <Feather
+                name="map"
+                color={focused ? '#0d101b' : '#fff'}
+                size={size}
+              />
             </View>
           ),
-          tabBarLabel: '',
         }}
       />
     </Tab.Navigator>
