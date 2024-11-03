@@ -8,6 +8,7 @@ export interface Drink {
   rating: number;
   id: string;
   image?: Asset;
+  image_url?: string;
 }
 
 export type NewDrink = Omit<Drink, 'id'>;

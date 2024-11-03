@@ -1,11 +1,18 @@
 // src/pages/HomePage.tsx
 import React, {useState} from 'react';
-import {View, StyleSheet, ActivityIndicator, Text, Button} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ActivityIndicator,
+  Text,
+  Button,
+  Alert,
+} from 'react-native';
 import {useMutation, useQuery} from '@tanstack/react-query';
 import {addDrink, fetchReviews} from '../../services/api';
 import ReviewList from '../../components/organisms/ReviewList';
 import AddDrinkModal from './components/organisms/AddDrinkModal';
-import {Drink, NewDrink} from '../../intrefaces/drink';
+import { Drink } from '@/intrefaces/drink';
 
 const HomePage: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -19,14 +26,15 @@ const HomePage: React.FC = () => {
     onSuccess: () => {
       refetch();
       setModalVisible(false);
+      Alert.alert('Bebida adicionada com sucesso!');
     },
     onError: error => {
       console.error('Erro ao adicionar bebida:', error);
+      Alert.alert('Erro ao adicionar bebida', error.message);
     },
   });
 
   const handleAddDrink = (formData: FormData) => {
-    console.log('Form Data:', formData);
     mutation.mutate(formData);
   };
 

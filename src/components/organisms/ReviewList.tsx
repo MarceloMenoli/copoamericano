@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
 import Review from '../molecules/Review';
-import { Drink } from '../../intrefaces/drink';
+import {Drink} from '../../intrefaces/drink';
 
 interface ReviewData {
   id: string;
@@ -24,6 +24,7 @@ const ReviewList: React.FC<ReviewListProps> = ({reviews}) => {
           name={item.name}
           rating={item.rating}
           description={item.description}
+          image_url={item.image_url}
         />
       )}
       contentContainerStyle={styles.list}

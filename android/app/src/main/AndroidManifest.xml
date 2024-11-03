@@ -1,9 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Todas as permissões devem estar aqui -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <!-- Elemento Application -->
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -12,6 +16,11 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:supportsRtl="true">
+
+      <!-- Elemento <activity> deve estar aqui dentro -->
+      <meta-data
+          android:name="com.google.android.geo.API_KEY"
+          android:value="AIzaSyBnRdCbC8mobTqHgc9COM5S9RYR-oThVQI"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -24,5 +33,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+
     </application>
+
 </manifest>
